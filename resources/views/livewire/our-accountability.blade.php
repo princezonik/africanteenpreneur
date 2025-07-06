@@ -1,6 +1,6 @@
 <div>
    <!-- Hero Header -->
-    <section class="relative w-full h-[400px] md:h-[500px] overflow-hidden">
+    <section class="relative w-full h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden">
         <livewire:partials.navbar />
         <!-- Image -->
         <img 
@@ -14,14 +14,14 @@
 
         <!-- Content -->
         <div class="relative z-20 flex flex-col justify-center items-center text-center h-full text-white px-4">
-            <p class="  font-bold">WHO WE ARE</p>
-            <h2 class="text-xl md:text-3xl mt-2 font-semibold text-orange-400"> Why we receive high charity ratings</h2>
+            <p class="text-sm sm:text-base font-bold uppercase">Who We Are</p>
+            <h2 class="text-xl sm:text-2xl md:text-3xl  mt-2 font-semibold text-orange-400 max-w-[90%]"> Why we receive high charity ratings</h2>
         </div>
     </section>
 
     <section class="text-center bg-white">
         <div class="flex flex-wrap justify-center items-center space-x-6 text-2xl text-gray-600">
-            <h3 class="font-bold text-gray-800 text-xl uppercase">Share</h3>
+            <h3 class="font-bold text-gray-800 text-lg sm:text-xl uppercase">Share</h3>
 
             <!-- Facebook -->
             <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::url()) }}"
@@ -53,23 +53,25 @@
 
     </section>
 
-    <section x-data="{
-        tab: (() => {
-            const param = new URLSearchParams(window.location.search).get('tab_q');
-            if (!param) return 'accountability';
-            try {
-                return atob(param.split('tab_element_')[1]);
-            } catch { return 'accountability'; }
-        })(),
+    <section 
+        x-data="{
+            tab: (() => {
+                const param = new URLSearchParams(window.location.search).get('tab_q');
+                if (!param) return 'accountability';
+                try {
+                    return atob(param.split('tab_element_')[1]);
+                } catch { return 'accountability'; }
+            })(),
 
-        selectTab(name) {
-            this.tab = name;
-            const base64 = btoa(name);
-            const url = new URL(window.location);
-            url.searchParams.set('tab_q', 'tab_container-tab_element_' + base64);
-            history.pushState({}, '', url);
-        }
-    }" class="w-full px-4 py-8 bg-white">
+            selectTab(name) {
+                this.tab = name;
+                const base64 = btoa(name);
+                const url = new URL(window.location);
+                url.searchParams.set('tab_q', 'tab_container-tab_element_' + base64);
+                history.pushState({}, '', url);
+            }
+        }" class="w-full px-4 py-8 bg-white">
+        
         <!-- Tabs -->
         <div class="flex flex-wrap justify-center space-x-6 border-b border-gray-300 mb-6">
             <!-- Our Accountability Tab -->

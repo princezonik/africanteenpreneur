@@ -8,7 +8,7 @@
             <h1 class="text-xl md:text-[28px] font-semibold">Explore</h1>
             <div class="flex flex-col space-y-2 text-gray-300">
                 <a href="#" class="hover:underline">Our Mission</a>
-                <a href="#" class="hover:underline">Our Accountability</a>
+                <a href="{{route('our-accountability')}}" class="hover:underline">Our Accountability</a>
                 <a href="#" class="hover:underline">Volunteer</a>
             </div>
         </div>
